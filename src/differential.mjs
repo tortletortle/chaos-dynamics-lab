@@ -1,5 +1,4 @@
 import { createCoEvolutionLab } from './evolution.mjs';
-import { createCoEvolutionLab } from './evolution.mjs';
 // Mixed-variable differential evolution baseline for joint morphology/controller search.
 export function createMixedDE(lab=createCoEvolutionLab()){
 

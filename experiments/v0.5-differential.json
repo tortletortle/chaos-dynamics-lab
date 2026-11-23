@@ -1,0 +1,608 @@
+{
+  "runtime": "V8 isolate; DE and existing NSGA-II/random factories executed before upload",
+  "tests": {
+    "checks": {
+      "deterministic rng": true,
+      "repair bounds": true,
+      "controller bounds": true,
+      "continuous bounds": true,
+      "matched budget": true
+    },
+    "passed": 5,
+    "total": 5
+  },
+  "report": {
+    "method": "mixed-variable DE/rand/1/bin",
+    "seeds": [
+      7,
+      19,
+      41,
+      59,
+      73
+    ],
+    "budget": 48,
+    "population": 8,
+    "trainDt": 0.004166666666666667,
+    "trainingScenarios": [
+      {
+        "seed": 31,
+        "kind": "rough"
+      },
+      {
+        "seed": 47,
+        "kind": "ridge"
+      },
+      {
+        "seed": 83,
+        "kind": "washboard"
+      }
+    ],
+    "heldOutScenarios": [
+      {
+        "seed": 101,
+        "kind": "rough"
+      },
+      {
+        "seed": 113,
+        "kind": "ridge"
+      },
+      {
+        "seed": 127,
+        "kind": "washboard"
+      },
+      {
+        "seed": 149,
+        "kind": "low-grip"
+      }
+    ],
+    "evaluations": 240,
+    "trainingSimulationRuns": 720,
+    "validationSimulationRuns": 40,
+    "summary": {
+      "deTest": 15.210718320817753,
+      "deGoalRate": 0.7,
+      "gatePasses": 20,
+      "gateTotal": 20,
+      "randomTest": 17.287641082707864,
+      "randomGoalRate": 0.75,
+      "jointNSGA2Test": 16.084866230587075,
+      "jointNSGA2GoalRate": 0.7
+    },
+    "rows": [
+      {
+        "seed": 7,
+        "trainFitness": 22.05069410778572,
+        "trainScore": 20.32012366996981,
+        "trainSuccess": 1,
+        "genome": {
+          "morph": {
+            "n": 2,
+            "span": 2.154650338747257,
+            "radius": 0.2559402273765635,
+            "gear": 5.854108400642872,
+            "stiffness": 29879.124957857213,
+            "damping": 4955.079328677134,
+            "com": -0.02831535135778137
+          },
+          "control": {
+            "bias": 0.7674234226687754,
+            "targetSpeed": 1.1324273913293523,
+            "speedKp": 0,
+            "pitchKp": 0.23129373896662095,
+            "pitchRateKp": 0.04422174042167576,
+            "slipLimit": 1.4007583302381166,
+            "slipKp": 0.19425462361205492
+          }
+        },
+        "validation": {
+          "rows": [
+            {
+              "scenario": {
+                "seed": 101,
+                "kind": "rough"
+              },
+              "status": "accepted-960",
+              "score": -0.7871582321291051,
+              "reason": "pitch-envelope",
+              "residual960": 0.000002914523755525488,
+              "residual1920": null,
+              "delta480960": 0.0010366256293927734,
+              "delta9601920": null,
+              "work": 3546.264402855275,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 113,
+                "kind": "ridge"
+              },
+              "status": "accepted-960",
+              "score": 20.857648642514917,
+              "reason": "goal",
+              "residual960": 9.139370556770753e-8,
+              "residual1920": null,
+              "delta480960": 6.46372875223733e-8,
+              "delta9601920": null,
+              "work": 5968.19264434304,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 127,
+                "kind": "washboard"
+              },
+              "status": "accepted-960",
+              "score": 12.4413169556542,
+              "reason": "timeout",
+              "residual960": 0.00007322197020519752,
+              "residual1920": null,
+              "delta480960": 0.008881686330767025,
+              "delta9601920": null,
+              "work": 6144.224595111694,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 149,
+                "kind": "low-grip"
+              },
+              "status": "accepted-960",
+              "score": 20.271470082613764,
+              "reason": "goal",
+              "residual960": 8.101611579444602e-11,
+              "residual1920": null,
+              "delta480960": 7.549464342559986e-8,
+              "delta9601920": null,
+              "work": 6672.662423317732,
+              "reached": true
+            }
+          ],
+          "accepted": 4,
+          "total": 4,
+          "meanScore": 13.195819362163444,
+          "successRate": 0.5,
+          "gatePassed": true,
+          "simulationRuns": 8
+        },
+        "random": {
+          "test": 18.604311652875616,
+          "success": 0.75
+        },
+        "jointNSGA2": {
+          "test": 20.321325218571992,
+          "success": 1
+        }
+      },
+      {
+        "seed": 19,
+        "trainFitness": 21.972811442140472,
+        "trainScore": 20.31828046172122,
+        "trainSuccess": 1,
+        "genome": {
+          "morph": {
+            "n": 2,
+            "span": 1.9719616213564348,
+            "radius": 0.3475304757042452,
+            "gear": 7.859145325117129,
+            "stiffness": 80000,
+            "damping": 2672.327275755497,
+            "com": -0.08
+          },
+          "control": {
+            "bias": 0.2,
+            "targetSpeed": 5,
+            "speedKp": 0.25,
+            "pitchKp": 0,
+            "pitchRateKp": 0.22031397025369923,
+            "slipLimit": 0.24038165968226752,
+            "slipKp": 0.09582717122572992
+          }
+        },
+        "validation": {
+          "rows": [
+            {
+              "scenario": {
+                "seed": 101,
+                "kind": "rough"
+              },
+              "status": "accepted-960",
+              "score": -0.585069028872022,
+              "reason": "pitch-envelope",
+              "residual960": 0.000012397994075508983,
+              "residual1920": null,
+              "delta480960": 0.002211812031616134,
+              "delta9601920": null,
+              "work": 2402.436464985984,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 113,
+                "kind": "ridge"
+              },
+              "status": "accepted-960",
+              "score": 20.877102674053134,
+              "reason": "goal",
+              "residual960": 6.376115025222484e-8,
+              "residual1920": null,
+              "delta480960": 0.00003315422767968812,
+              "delta9601920": null,
+              "work": 2938.097489843833,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 127,
+                "kind": "washboard"
+              },
+              "status": "accepted-960",
+              "score": 13.548414201518032,
+              "reason": "timeout",
+              "residual960": 0.000029114671958595116,
+              "residual1920": null,
+              "delta480960": 0.002536129511630847,
+              "delta9601920": null,
+              "work": 6831.263353175484,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 149,
+                "kind": "low-grip"
+              },
+              "status": "accepted-960",
+              "score": 20.333307718450698,
+              "reason": "goal",
+              "residual960": 1.1313037958337778e-10,
+              "residual1920": null,
+              "delta480960": 3.490081823542823e-8,
+              "delta9601920": null,
+              "work": 5160.949078355583,
+              "reached": true
+            }
+          ],
+          "accepted": 4,
+          "total": 4,
+          "meanScore": 13.543438891287462,
+          "successRate": 0.5,
+          "gatePassed": true,
+          "simulationRuns": 8
+        },
+        "random": {
+          "test": 18.726521673422432,
+          "success": 0.75
+        },
+        "jointNSGA2": {
+          "test": 18.726521673422432,
+          "success": 0.75
+        }
+      },
+      {
+        "seed": 41,
+        "trainFitness": 21.937535934488405,
+        "trainScore": 20.123562251404334,
+        "trainSuccess": 1,
+        "genome": {
+          "morph": {
+            "n": 4,
+            "span": 2.360697705732771,
+            "radius": 0.3271616974522866,
+            "gear": 6.4704817741899685,
+            "stiffness": 60950.21714038773,
+            "damping": 3614.341412318662,
+            "com": 0.07178737380097952
+          },
+          "control": {
+            "bias": 0.5215147220945346,
+            "targetSpeed": 4.887821451203615,
+            "speedKp": 0.25,
+            "pitchKp": 0,
+            "pitchRateKp": 0.3358822096801329,
+            "slipLimit": 0.6266909700896582,
+            "slipKp": 0.039383537989102296
+          }
+        },
+        "validation": {
+          "rows": [
+            {
+              "scenario": {
+                "seed": 101,
+                "kind": "rough"
+              },
+              "status": "accepted-960",
+              "score": 20.299680214603928,
+              "reason": "goal",
+              "residual960": 0.000006943364161226182,
+              "residual1920": null,
+              "delta480960": 0.0001262479965582486,
+              "delta9601920": null,
+              "work": 5927.225453544481,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 113,
+                "kind": "ridge"
+              },
+              "status": "accepted-960",
+              "score": 20.48000662482479,
+              "reason": "goal",
+              "residual960": 0.0000035742212424562816,
+              "residual1920": null,
+              "delta480960": 0.000029528174998461054,
+              "delta9601920": null,
+              "work": 5266.486477657608,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 127,
+                "kind": "washboard"
+              },
+              "status": "accepted-960",
+              "score": 19.079030726492633,
+              "reason": "goal",
+              "residual960": 0.00001704280294482033,
+              "residual1920": null,
+              "delta480960": 0.0008473368549921645,
+              "delta9601920": null,
+              "work": 10762.503516393805,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 149,
+                "kind": "low-grip"
+              },
+              "status": "accepted-960",
+              "score": 19.984662575188132,
+              "reason": "goal",
+              "residual960": 1.310653952422916e-11,
+              "residual1920": null,
+              "delta480960": 1.735336496722084e-8,
+              "delta9601920": null,
+              "work": 9014.9101124901,
+              "reached": true
+            }
+          ],
+          "accepted": 4,
+          "total": 4,
+          "meanScore": 19.960845035277373,
+          "successRate": 1,
+          "gatePassed": true,
+          "simulationRuns": 8
+        },
+        "random": {
+          "test": 20.23139650588412,
+          "success": 1
+        },
+        "jointNSGA2": {
+          "test": 13.399954218410022,
+          "success": 0.5
+        }
+      },
+      {
+        "seed": 59,
+        "trainFitness": 22.507826266010806,
+        "trainScore": 20.592160746842726,
+        "trainSuccess": 1,
+        "genome": {
+          "morph": {
+            "n": 3,
+            "span": 2.145703832746164,
+            "radius": 0.28326926691042764,
+            "gear": 8,
+            "stiffness": 46417.157315193486,
+            "damping": 2245.857886648647,
+            "com": 0.08
+          },
+          "control": {
+            "bias": 0.9,
+            "targetSpeed": 2.838108628722037,
+            "speedKp": 0.020652792042979314,
+            "pitchKp": 0,
+            "pitchRateKp": 0.31329226527773224,
+            "slipLimit": 0.9819501985646651,
+            "slipKp": 0
+          }
+        },
+        "validation": {
+          "rows": [
+            {
+              "scenario": {
+                "seed": 101,
+                "kind": "rough"
+              },
+              "status": "accepted-960",
+              "score": -0.9331489200433598,
+              "reason": "pitch-envelope",
+              "residual960": 0.000001894026309119779,
+              "residual1920": null,
+              "delta480960": 0.00006669513342849598,
+              "delta9601920": null,
+              "work": 4748.973940646606,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 113,
+                "kind": "ridge"
+              },
+              "status": "accepted-960",
+              "score": 20.73489693391909,
+              "reason": "goal",
+              "residual960": 0.000001034053751342004,
+              "residual1920": null,
+              "delta480960": 0.00006230000931850554,
+              "delta9601920": null,
+              "work": 7423.43119717245,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 127,
+                "kind": "washboard"
+              },
+              "status": "accepted-960",
+              "score": 18.8116995743865,
+              "reason": "goal",
+              "residual960": 0.00003078743447256011,
+              "residual1920": null,
+              "delta480960": 0.007763758761413442,
+              "delta9601920": null,
+              "work": 12484.240147980287,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 149,
+                "kind": "low-grip"
+              },
+              "status": "accepted-960",
+              "score": 19.601772020122763,
+              "reason": "goal",
+              "residual960": 8.647493487182898e-11,
+              "residual1920": null,
+              "delta480960": 0.0000032283445925429533,
+              "delta9601920": null,
+              "work": 12761.258873093037,
+              "reached": true
+            }
+          ],
+          "accepted": 4,
+          "total": 4,
+          "meanScore": 14.55380490209625,
+          "successRate": 0.75,
+          "gatePassed": true,
+          "simulationRuns": 8
+        },
+        "random": {
+          "test": 14.076292168092914,
+          "success": 0.5
+        },
+        "jointNSGA2": {
+          "test": 13.15539381528954,
+          "success": 0.5
+        }
+      },
+      {
+        "seed": 73,
+        "trainFitness": 22.284306600321333,
+        "trainScore": 20.42274118803543,
+        "trainSuccess": 1,
+        "genome": {
+          "morph": {
+            "n": 4,
+            "span": 2.0936077534221114,
+            "radius": 0.32393462557035185,
+            "gear": 7.622627305332571,
+            "stiffness": 38855.60158826411,
+            "damping": 2604.011573130265,
+            "com": -0.018108108863234523
+          },
+          "control": {
+            "bias": 0.7371123731369151,
+            "targetSpeed": 4.740014309994876,
+            "speedKp": 0.15607914444990456,
+            "pitchKp": 0.797930728411302,
+            "pitchRateKp": 0.3138078500633128,
+            "slipLimit": 0.5589011928765103,
+            "slipKp": 0.08874916899949313
+          }
+        },
+        "validation": {
+          "rows": [
+            {
+              "scenario": {
+                "seed": 101,
+                "kind": "rough"
+              },
+              "status": "accepted-960",
+              "score": -0.6828818841897881,
+              "reason": "pitch-envelope",
+              "residual960": 0.000006092283163941349,
+              "residual1920": null,
+              "delta480960": 0.0005389923466818658,
+              "delta9601920": null,
+              "work": 3778.5614315482485,
+              "reached": false
+            },
+            {
+              "scenario": {
+                "seed": 113,
+                "kind": "ridge"
+              },
+              "status": "accepted-960",
+              "score": 20.709125719608142,
+              "reason": "goal",
+              "residual960": 0.0000036886846922894577,
+              "residual1920": null,
+              "delta480960": 0.000010876218052402464,
+              "delta9601920": null,
+              "work": 5245.115892227766,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 127,
+                "kind": "washboard"
+              },
+              "status": "accepted-960",
+              "score": 19.144002619766,
+              "reason": "goal",
+              "residual960": 0.000023111866772731558,
+              "residual1920": null,
+              "delta480960": 0.0008598767894163473,
+              "delta9601920": null,
+              "work": 9749.943662939058,
+              "reached": true
+            },
+            {
+              "scenario": {
+                "seed": 149,
+                "kind": "low-grip"
+              },
+              "status": "accepted-960",
+              "score": 20.028487197872593,
+              "reason": "goal",
+              "residual960": 1.4418890635648187e-11,
+              "residual1920": null,
+              "delta480960": 4.293748290251642e-8,
+              "delta9601920": null,
+              "work": 8787.832923687905,
+              "reached": true
+            }
+          ],
+          "accepted": 4,
+          "total": 4,
+          "meanScore": 14.799683413264237,
+          "successRate": 0.75,
+          "gatePassed": true,
+          "simulationRuns": 8
+        },
+        "random": {
+          "test": 14.799683413264237,
+          "success": 0.75
+        },
+        "jointNSGA2": {
+          "test": 14.82113622724139,
+          "success": 0.75
+        }
+      }
+    ],
+    "comparisons": {
+      "deVsRandom": {
+        "wins": 1,
+        "ties": 1,
+        "losses": 3,
+        "mean": -2.0769227618901107
+      },
+      "deVsJoint": {
+        "wins": 2,
+        "ties": 0,
+        "losses": 3,
+        "mean": -0.8741479097693222
+      }
+    }
+  }
+}

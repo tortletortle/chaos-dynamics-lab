@@ -1,0 +1,1571 @@
+{
+  "runtime": "V8 isolate; identical factories executed before upload",
+  "tests": {
+    "checks": {
+      "controller output bounded": true,
+      "zero throttle equals unpowered": true,
+      "valid topology": true,
+      "all wheel counts reachable": true,
+      "deterministic search": true,
+      "matched budgets": true,
+      "morphology-only controller fixed": true,
+      "control-only morphology fixed": true,
+      "Pareto sorting": true,
+      "validation gate result": true
+    },
+    "passed": 10,
+    "total": 10
+  },
+  "benchmark": {
+    "train": [
+      {
+        "seed": 31,
+        "kind": "rough"
+      },
+      {
+        "seed": 47,
+        "kind": "ridge"
+      },
+      {
+        "seed": 83,
+        "kind": "washboard"
+      }
+    ],
+    "test": [
+      {
+        "seed": 101,
+        "kind": "rough"
+      },
+      {
+        "seed": 113,
+        "kind": "ridge"
+      },
+      {
+        "seed": 127,
+        "kind": "washboard"
+      },
+      {
+        "seed": 149,
+        "kind": "low-grip"
+      }
+    ],
+    "budget": 24,
+    "population": 8,
+    "searchEvaluations": 288,
+    "trainingSimulationRuns": 864,
+    "fixedBaselineSimulationRuns": 9,
+    "validationSimulationRuns": 120,
+    "summary": {
+      "random": {
+        "trainScore": 20.204972734706317,
+        "trainSuccess": 1,
+        "testScore": 18.680544273083573,
+        "testSuccess": 0.75,
+        "gatePasses": 12,
+        "gateTotal": 12,
+        "meanParetoSize": 13
+      },
+      "morphology": {
+        "trainScore": 19.354275016812284,
+        "trainSuccess": 0.8888888888888888,
+        "testScore": 17.541220703740763,
+        "testSuccess": 0.8333333333333334,
+        "gatePasses": 12,
+        "gateTotal": 12,
+        "meanParetoSize": 12
+      },
+      "control": {
+        "trainScore": 12.441345732252975,
+        "trainSuccess": 0,
+        "testScore": 14.120986901265425,
+        "testSuccess": 0.3333333333333333,
+        "gatePasses": 12,
+        "gateTotal": 12,
+        "meanParetoSize": 22.666666666666668
+      },
+      "joint": {
+        "trainScore": 20.2577907489095,
+        "trainSuccess": 1,
+        "testScore": 16.846559503581403,
+        "testSuccess": 0.6666666666666666,
+        "gatePasses": 12,
+        "gateTotal": 12,
+        "meanParetoSize": 14.666666666666666
+      },
+      "fixed": {
+        "trainScore": 11.808889193384852,
+        "trainSuccess": 0.6666666666666666,
+        "testScore": 13.127156202366416,
+        "testSuccess": 0.5,
+        "gatePasses": 12,
+        "gateTotal": 12,
+        "meanParetoSize": 1
+      }
+    },
+    "comparisons": {
+      "jointVsrandom": {
+        "wins": 1,
+        "ties": 1,
+        "losses": 1,
+        "mean": -1.8339847695021732
+      },
+      "jointVsfixed": {
+        "wins": 2,
+        "ties": 0,
+        "losses": 1,
+        "mean": 3.7194033012149865
+      },
+      "jointVsmorphology": {
+        "wins": 1,
+        "ties": 0,
+        "losses": 2,
+        "mean": -0.6946612001593605
+      },
+      "jointVscontrol": {
+        "wins": 2,
+        "ties": 0,
+        "losses": 1,
+        "mean": 2.7255726023159776
+      },
+      "morphologyVsrandom": {
+        "wins": 1,
+        "ties": 0,
+        "losses": 2,
+        "mean": -1.1393235693428128
+      },
+      "morphologyVsfixed": {
+        "wins": 3,
+        "ties": 0,
+        "losses": 0,
+        "mean": 4.414064501374347
+      },
+      "morphologyVscontrol": {
+        "wins": 2,
+        "ties": 0,
+        "losses": 1,
+        "mean": 3.420233802475338
+      },
+      "controlVsrandom": {
+        "wins": 0,
+        "ties": 0,
+        "losses": 3,
+        "mean": -4.55955737181815
+      },
+      "controlVsfixed": {
+        "wins": 2,
+        "ties": 0,
+        "losses": 1,
+        "mean": 0.9938306988990089
+      },
+      "controlVsmorphology": {
+        "wins": 1,
+        "ties": 0,
+        "losses": 2,
+        "mean": -3.420233802475338
+      }
+    },
+    "rows": [
+      {
+        "seed": 7,
+        "random": {
+          "trainFitness": 21.979347431146977,
+          "trainScore": 20.262163076104542,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 2.0095089055132123,
+              "radius": 0.31677162151318045,
+              "gear": 5.20843715313822,
+              "stiffness": 36372.47539078817,
+              "damping": 4900.757470168173,
+              "com": -0.040394624918699266
+            },
+            "control": {
+              "bias": 0.8144457168877124,
+              "targetSpeed": 1.7631668373942375,
+              "speedKp": 0.03591434651752934,
+              "pitchKp": 0.2165016422048211,
+              "pitchRateKp": 0.1309280458954163,
+              "slipLimit": 1.163617648393847,
+              "slipKp": 0.3047494780272246
+            }
+          },
+          "paretoSize": 12,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.575975178346955,
+                "reason": "goal",
+                "residual960": 0.0000034448123622072853,
+                "residual1920": null,
+                "delta480960": 0.0000030570419120579118,
+                "delta9601920": null,
+                "work": 3982.5217099423953,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.721339435279663,
+                "reason": "goal",
+                "residual960": 5.979051402674152e-8,
+                "residual1920": null,
+                "delta480960": 0.000014599964018202627,
+                "delta9601920": null,
+                "work": 4427.1939825763075,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 12.77899808775489,
+                "reason": "timeout",
+                "residual960": 0.000026246849239450503,
+                "residual1920": null,
+                "delta480960": 0.005824641581050116,
+                "delta9601920": null,
+                "work": 4320.743572670042,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.340933910120945,
+                "reason": "goal",
+                "residual960": 9.364354946121032e-11,
+                "residual1920": null,
+                "delta480960": 2.501094442663998e-8,
+                "delta9601920": null,
+                "work": 5347.4785155082145,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.604311652875616,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "morphology": {
+          "trainFitness": 21.762478331305083,
+          "trainScore": 20.03873897003344,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 3.2645016237631213,
+              "radius": 0.3660038273467175,
+              "gear": 5.581111454515387,
+              "stiffness": 37134.25278644867,
+              "damping": 4985.397756513451,
+              "com": 0.010708650076783616
+            },
+            "control": null
+          },
+          "paretoSize": 14,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.35220548515992,
+                "reason": "goal",
+                "residual960": 0.000016117029799950317,
+                "residual1920": null,
+                "delta480960": 0.00009362569048931846,
+                "delta9601920": null,
+                "work": 8112.5999016903115,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.562673325129403,
+                "reason": "goal",
+                "residual960": 1.690983233301252e-7,
+                "residual1920": null,
+                "delta480960": 0.0000016832874436545353,
+                "delta9601920": null,
+                "work": 7168.940436030402,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 18.77962796265204,
+                "reason": "goal",
+                "residual960": 0.000023311219731909816,
+                "residual1920": null,
+                "delta480960": 0.0012823973245872367,
+                "delta9601920": null,
+                "work": 12367.764666191102,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.473962367966514,
+                "reason": "goal",
+                "residual960": 2.610825093393912e-11,
+                "residual1920": null,
+                "delta480960": 8.972909881777014e-8,
+                "delta9601920": null,
+                "work": 13886.556126433135,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 19.792117285226972,
+            "successRate": 1,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "control": {
+          "trainFitness": 10.91816391826875,
+          "trainScore": 11.44412958714851,
+          "trainSuccess": 0,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": {
+              "bias": 0.3379960820777342,
+              "targetSpeed": 2.4718343736603856,
+              "speedKp": 0.07331183447968215,
+              "pitchKp": 0.7486353357322514,
+              "pitchRateKp": 0.13334861170733348,
+              "slipLimit": 1.9592002932913601,
+              "slipKp": 0.09901343770325184
+            }
+          },
+          "paretoSize": 21,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 13.038763220334117,
+                "reason": "timeout",
+                "residual960": 3.580630131163654e-8,
+                "residual1920": null,
+                "delta480960": 0.0010237736745803971,
+                "delta9601920": null,
+                "work": 980.2059140489448,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 6.4828596735240955,
+                "reason": "timeout",
+                "residual960": 1.1574009201578214e-8,
+                "residual1920": null,
+                "delta480960": 0.0000014899334699336464,
+                "delta9601920": null,
+                "work": 763.0469153048135,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 10.686483416102778,
+                "reason": "timeout",
+                "residual960": 2.6570260055484826e-7,
+                "residual1920": null,
+                "delta480960": 0.00035722407001159695,
+                "delta9601920": null,
+                "work": 1207.9110057518756,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.890862364818744,
+                "reason": "goal",
+                "residual960": 3.871594676276601e-11,
+                "residual1920": null,
+                "delta480960": 1.9053515387668085e-7,
+                "delta9601920": null,
+                "work": 1624.5691152567529,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 12.524742168694933,
+            "successRate": 0.25,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "joint": {
+          "trainFitness": 22.03280221254673,
+          "trainScore": 20.346269008076547,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 2.089466806956607,
+              "radius": 0.35718851239364746,
+              "gear": 7.458045481508841,
+              "stiffness": 34861.513254402395,
+              "damping": 4855.942212604088,
+              "com": -0.03964771013650171
+            },
+            "control": {
+              "bias": 0.7424028012297633,
+              "targetSpeed": 3.050520083420177,
+              "speedKp": 0.09009839406388778,
+              "pitchKp": 0.19623400686850825,
+              "pitchRateKp": 0.28410744854730036,
+              "slipLimit": 1.1201486173204724,
+              "slipKp": 0.2875284325258454
+            }
+          },
+          "paretoSize": 14,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.665260599804203,
+                "reason": "goal",
+                "residual960": 0.000007745785131805567,
+                "residual1920": null,
+                "delta480960": 0.000057717238281185246,
+                "delta9601920": null,
+                "work": 3932.309064726468,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.8825432462228,
+                "reason": "goal",
+                "residual960": 1.6297658288381025e-7,
+                "residual1920": null,
+                "delta480960": 0.00001210622486524926,
+                "delta9601920": null,
+                "work": 4112.236305536287,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 12.893782621531633,
+                "reason": "timeout",
+                "residual960": 0.000017210595953518786,
+                "residual1920": null,
+                "delta480960": 0.006148669348108982,
+                "delta9601920": null,
+                "work": 5181.5800803898555,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.375178542544433,
+                "reason": "goal",
+                "residual960": 1.9076007066185753e-10,
+                "residual1920": null,
+                "delta480960": 5.445205175647061e-9,
+                "delta9601920": null,
+                "work": 5411.5409363268445,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.704191252525767,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "fixed": {
+          "trainFitness": 7.45560744097375,
+          "trainScore": 11.808889193384852,
+          "trainSuccess": 0.6666666666666666,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": null
+          },
+          "paretoSize": 1,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": -1.0867359482766252,
+                "reason": "pitch-envelope",
+                "residual960": 0.0000023071229317512684,
+                "residual1920": null,
+                "delta480960": 0.00009295219776550567,
+                "delta9601920": null,
+                "work": 3815.0560315681328,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.571079168016677,
+                "reason": "goal",
+                "residual960": 1.8449192018172808e-8,
+                "residual1920": null,
+                "delta480960": 3.8405545765840543e-7,
+                "delta9601920": null,
+                "work": 5687.41370396173,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.475183805869145,
+                "reason": "timeout",
+                "residual960": 0.000026555435111431225,
+                "residual1920": null,
+                "delta480960": 0.00024846473590578455,
+                "delta9601920": null,
+                "work": 10448.756891732039,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.549097783856464,
+                "reason": "goal",
+                "residual960": 1.4836688854935936e-11,
+                "residual1920": null,
+                "delta480960": 3.49133593147144e-8,
+                "delta9601920": null,
+                "work": 13094.865107904045,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 13.127156202366415,
+            "successRate": 0.5,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        }
+      },
+      {
+        "seed": 19,
+        "random": {
+          "trainFitness": 21.961769522969462,
+          "trainScore": 20.253893757471488,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.9191541022621097,
+              "radius": 0.36933041515760123,
+              "gear": 6.541617424692959,
+              "stiffness": 79168.01631450653,
+              "damping": 1951.3551122508943,
+              "com": 0.024569324925541883
+            },
+            "control": {
+              "bias": 0.5718939527869225,
+              "targetSpeed": 3.1187949972227216,
+              "speedKp": 0.205563263152726,
+              "pitchKp": 0.15926792961545289,
+              "pitchRateKp": 0.21931727186311037,
+              "slipLimit": 1.2170020817429759,
+              "slipKp": 0.15915730074048043
+            }
+          },
+          "paretoSize": 13,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.64562937702815,
+                "reason": "goal",
+                "residual960": 0.000001994978887683248,
+                "residual1920": null,
+                "delta480960": 0.000026729131494818148,
+                "delta9601920": null,
+                "work": 2604.6590416321783,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.65801050238732,
+                "reason": "goal",
+                "residual960": 1.985252112982605e-8,
+                "residual1920": null,
+                "delta480960": 0.0000062479075673138595,
+                "delta9601920": null,
+                "work": 2486.600721458205,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.190106515862428,
+                "reason": "timeout",
+                "residual960": 0.000025521456847241015,
+                "residual1920": null,
+                "delta480960": 0.003586873837813087,
+                "delta9601920": null,
+                "work": 4623.72762970577,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.41234029841184,
+                "reason": "goal",
+                "residual960": 7.632536687061628e-11,
+                "residual1920": null,
+                "delta480960": 3.50194397924497e-8,
+                "delta9601920": null,
+                "work": 4092.38773203541,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.726521673422432,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "morphology": {
+          "trainFitness": 17.67287176116533,
+          "trainScore": 17.86069275449247,
+          "trainSuccess": 0.6666666666666666,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 3.31609998033382,
+              "radius": 0.531005109071266,
+              "gear": 4.849811720661819,
+              "stiffness": 27567.203623708338,
+              "damping": 1686.5967843914405,
+              "com": 0.06691008906811476
+            },
+            "control": null
+          },
+          "paretoSize": 8,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 19.813006302511184,
+                "reason": "goal",
+                "residual960": 0.000006560682338769766,
+                "residual1920": null,
+                "delta480960": 0.00023942733673720795,
+                "delta9601920": null,
+                "work": 5981.25467391086,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.157555484621593,
+                "reason": "goal",
+                "residual960": 4.402273946440011e-7,
+                "residual1920": null,
+                "delta480960": 0.000007621959046133497,
+                "delta9601920": null,
+                "work": 4288.8898765749245,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 12.720490236547796,
+                "reason": "timeout",
+                "residual960": 0.000009518549345912556,
+                "residual1920": null,
+                "delta480960": 0.00011485781971209974,
+                "delta9601920": null,
+                "work": 5461.386537599779,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.36921466337565,
+                "reason": "goal",
+                "residual960": 1.7279825110983605e-11,
+                "residual1920": null,
+                "delta480960": 7.763247822367703e-10,
+                "delta9601920": null,
+                "work": 4902.130001633832,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.265066671764057,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "control": {
+          "trainFitness": 12.335161251774393,
+          "trainScore": 12.694034854263359,
+          "trainSuccess": 0,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": {
+              "bias": 0.33815897356253116,
+              "targetSpeed": 2.1668917164206505,
+              "speedKp": 0.21210138918831944,
+              "pitchKp": 0.09099125498905777,
+              "pitchRateKp": 0.16973068874794991,
+              "slipLimit": 1.092768462235108,
+              "slipKp": 0.2086797170341015
+            }
+          },
+          "paretoSize": 24,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 13.883728069256152,
+                "reason": "timeout",
+                "residual960": 4.656476104250217e-8,
+                "residual1920": null,
+                "delta480960": 0.00005340419317434453,
+                "delta9601920": null,
+                "work": 946.593972343801,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 11.546539257348272,
+                "reason": "timeout",
+                "residual960": 1.4791446962783373e-8,
+                "residual1920": null,
+                "delta480960": 0.00011293557477287663,
+                "delta9601920": null,
+                "work": 1142.1364915009283,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 11.365835424247141,
+                "reason": "timeout",
+                "residual960": 1.998963907978819e-7,
+                "residual1920": null,
+                "delta480960": 0.00043038072484868906,
+                "delta9601920": null,
+                "work": 1304.1319458057321,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.875808692360906,
+                "reason": "goal",
+                "residual960": 1.0708384241770054e-10,
+                "residual1920": null,
+                "delta480960": 2.601861481821288e-7,
+                "delta9601920": null,
+                "work": 1209.3412161773742,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 14.167977860803116,
+            "successRate": 0.25,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "joint": {
+          "trainFitness": 21.961769522969462,
+          "trainScore": 20.253893757471488,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.9191541022621097,
+              "radius": 0.36933041515760123,
+              "gear": 6.541617424692959,
+              "stiffness": 79168.01631450653,
+              "damping": 1951.3551122508943,
+              "com": 0.024569324925541883
+            },
+            "control": {
+              "bias": 0.5718939527869225,
+              "targetSpeed": 3.1187949972227216,
+              "speedKp": 0.205563263152726,
+              "pitchKp": 0.15926792961545289,
+              "pitchRateKp": 0.21931727186311037,
+              "slipLimit": 1.2170020817429759,
+              "slipKp": 0.15915730074048043
+            }
+          },
+          "paretoSize": 15,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.64562937702815,
+                "reason": "goal",
+                "residual960": 0.000001994978887683248,
+                "residual1920": null,
+                "delta480960": 0.000026729131494818148,
+                "delta9601920": null,
+                "work": 2604.6590416321783,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.65801050238732,
+                "reason": "goal",
+                "residual960": 1.985252112982605e-8,
+                "residual1920": null,
+                "delta480960": 0.0000062479075673138595,
+                "delta9601920": null,
+                "work": 2486.600721458205,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.190106515862428,
+                "reason": "timeout",
+                "residual960": 0.000025521456847241015,
+                "residual1920": null,
+                "delta480960": 0.003586873837813087,
+                "delta9601920": null,
+                "work": 4623.72762970577,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.41234029841184,
+                "reason": "goal",
+                "residual960": 7.632536687061628e-11,
+                "residual1920": null,
+                "delta480960": 3.50194397924497e-8,
+                "delta9601920": null,
+                "work": 4092.38773203541,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.726521673422432,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "fixed": {
+          "trainFitness": 7.45560744097375,
+          "trainScore": 11.808889193384852,
+          "trainSuccess": 0.6666666666666666,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": null
+          },
+          "paretoSize": 1,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": -1.0867359482766252,
+                "reason": "pitch-envelope",
+                "residual960": 0.0000023071229317512684,
+                "residual1920": null,
+                "delta480960": 0.00009295219776550567,
+                "delta9601920": null,
+                "work": 3815.0560315681328,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.571079168016677,
+                "reason": "goal",
+                "residual960": 1.8449192018172808e-8,
+                "residual1920": null,
+                "delta480960": 3.8405545765840543e-7,
+                "delta9601920": null,
+                "work": 5687.41370396173,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.475183805869145,
+                "reason": "timeout",
+                "residual960": 0.000026555435111431225,
+                "residual1920": null,
+                "delta480960": 0.00024846473590578455,
+                "delta9601920": null,
+                "work": 10448.756891732039,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.549097783856464,
+                "reason": "goal",
+                "residual960": 1.4836688854935936e-11,
+                "residual1920": null,
+                "delta480960": 3.49133593147144e-8,
+                "delta9601920": null,
+                "work": 13094.865107904045,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 13.127156202366415,
+            "successRate": 0.5,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        }
+      },
+      {
+        "seed": 41,
+        "random": {
+          "trainFitness": 21.83734173162915,
+          "trainScore": 20.098861370542924,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 3.113376213796437,
+              "radius": 0.38259379801107574,
+              "gear": 6.44389940937981,
+              "stiffness": 62053.52827953175,
+              "damping": 933.3215868100524,
+              "com": 0.024535533823072914
+            },
+            "control": {
+              "bias": 0.6679973892401904,
+              "targetSpeed": 3.739929392002523,
+              "speedKp": 0.14521409576991573,
+              "pitchKp": 0.5273276228457688,
+              "pitchRateKp": 0.12934405751293526,
+              "slipLimit": 0.9223835561191663,
+              "slipKp": 0.2385474872775376
+            }
+          },
+          "paretoSize": 14,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 20.099392019981543,
+                "reason": "goal",
+                "residual960": 0.000009081304109432486,
+                "residual1920": null,
+                "delta480960": 0.00008182135868040064,
+                "delta9601920": null,
+                "work": 3889.830081236947,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.706632413243586,
+                "reason": "goal",
+                "residual960": 0.000003213966137066319,
+                "residual1920": null,
+                "delta480960": 0.00002638584649972131,
+                "delta9601920": null,
+                "work": 3634.427017761767,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.632035746582352,
+                "reason": "timeout",
+                "residual960": 0.000010644192461811094,
+                "residual1920": null,
+                "delta480960": 0.0014469355887030133,
+                "delta9601920": null,
+                "work": 4853.250269176783,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.405137792003213,
+                "reason": "goal",
+                "residual960": 4.92646093825221e-11,
+                "residual1920": null,
+                "delta480960": 3.5753906502122845e-9,
+                "delta9601920": null,
+                "work": 5080.624639638115,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 18.710799492952674,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "morphology": {
+          "trainFitness": 22.061835738132178,
+          "trainScore": 20.16339332591095,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 4,
+              "span": 2.1893960457775714,
+              "radius": 0.324610482219206,
+              "gear": 5.631496779655416,
+              "stiffness": 46526.93472288141,
+              "damping": 2455.928845540967,
+              "com": 0.03361737908914482
+            },
+            "control": null
+          },
+          "paretoSize": 14,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": -0.8667148179383322,
+                "reason": "pitch-envelope",
+                "residual960": 0.0000015741905664344218,
+                "residual1920": null,
+                "delta480960": 0.0000042467595822159865,
+                "delta9601920": null,
+                "work": 5336.9160638721,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.330658044279794,
+                "reason": "goal",
+                "residual960": 0.0000026653859260807565,
+                "residual1920": null,
+                "delta480960": 0.000009956706151115213,
+                "delta9601920": null,
+                "work": 8466.566451370407,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 19.30652147637557,
+                "reason": "goal",
+                "residual960": 0.000018108923397125016,
+                "residual1920": null,
+                "delta480960": 0.00013737007891734265,
+                "delta9601920": null,
+                "work": 11370.593883945185,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.49544791420799,
+                "reason": "goal",
+                "residual960": 5.324500838007329e-12,
+                "residual1920": null,
+                "delta480960": 1.1593961346534343e-9,
+                "delta9601920": null,
+                "work": 13634.988007907286,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 14.566478154231255,
+            "successRate": 0.75,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "control": {
+          "trainFitness": 12.797926884095679,
+          "trainScore": 13.185872755347054,
+          "trainSuccess": 0,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": {
+              "bias": 0.5602937341183424,
+              "targetSpeed": 1.5595939565997865,
+              "speedKp": 0.1773739619529806,
+              "pitchKp": 1.2461512460059718,
+              "pitchRateKp": 0.14254951643053185,
+              "slipLimit": 0.7628965163686581,
+              "slipKp": 0.38490104959202165
+            }
+          },
+          "paretoSize": 23,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": 19.80479165211597,
+                "reason": "goal",
+                "residual960": 1.310233862734101e-7,
+                "residual1920": null,
+                "delta480960": 0.00009251675876242871,
+                "delta9601920": null,
+                "work": 1035.6099216465375,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 11.132220237151989,
+                "reason": "timeout",
+                "residual960": 1.3426810705698716e-8,
+                "residual1920": null,
+                "delta480960": 0.00003641596224213117,
+                "delta9601920": null,
+                "work": 1108.6224299237372,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 11.60849859578614,
+                "reason": "timeout",
+                "residual960": 0.0000036755319123606827,
+                "residual1920": null,
+                "delta480960": 0.00010942698978055887,
+                "delta9601920": null,
+                "work": 1434.6923525912543,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.13545221213879,
+                "reason": "goal",
+                "residual960": 8.92955492603916e-11,
+                "residual1920": null,
+                "delta480960": 1.9609743873161278e-7,
+                "delta9601920": null,
+                "work": 1596.149182146913,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 15.67024067429822,
+            "successRate": 0.5,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "joint": {
+          "trainFitness": 21.97608154290564,
+          "trainScore": 20.173209481180464,
+          "trainSuccess": 1,
+          "genome": {
+            "morph": {
+              "n": 4,
+              "span": 1.8281881595471126,
+              "radius": 0.2796980265911854,
+              "gear": 5.474002943555895,
+              "stiffness": 39354.98404298827,
+              "damping": 2251.806720731387,
+              "com": 0.06902095149361041
+            },
+            "control": {
+              "bias": 0.6263359416830405,
+              "targetSpeed": 3.95585943175109,
+              "speedKp": 0.23692997764862578,
+              "pitchKp": 0.5817536958108039,
+              "pitchRateKp": 0.27243673340808305,
+              "slipLimit": 0.6785873233237674,
+              "slipKp": 0.22659527145748307
+            }
+          },
+          "paretoSize": 15,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": -0.6769734312664006,
+                "reason": "pitch-envelope",
+                "residual960": 0.000003826633228512919,
+                "residual1920": null,
+                "delta480960": 0.0001024177246815583,
+                "delta9601920": null,
+                "work": 2720.431834439046,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.570185611802682,
+                "reason": "goal",
+                "residual960": 3.086900208303795e-7,
+                "residual1920": null,
+                "delta480960": 0.000020525504755397606,
+                "delta9601920": null,
+                "work": 3652.9082513391054,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 12.201474916805736,
+                "reason": "timeout",
+                "residual960": 0.000020409340133407775,
+                "residual1920": null,
+                "delta480960": 0.0076659689054388025,
+                "delta9601920": null,
+                "work": 6448.8328090115265,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 20.34117524184199,
+                "reason": "goal",
+                "residual960": 1.613777849041447e-11,
+                "residual1920": null,
+                "delta480960": 2.081838346157383e-8,
+                "delta9601920": null,
+                "work": 5443.291734870035,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 13.108965584796003,
+            "successRate": 0.5,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        },
+        "fixed": {
+          "trainFitness": 7.45560744097375,
+          "trainScore": 11.808889193384852,
+          "trainSuccess": 0.6666666666666666,
+          "genome": {
+            "morph": {
+              "n": 2,
+              "span": 1.7,
+              "radius": 0.38,
+              "gear": 4.5,
+              "stiffness": 36000,
+              "damping": 2300,
+              "com": 0
+            },
+            "control": null
+          },
+          "paretoSize": 1,
+          "validation": {
+            "rows": [
+              {
+                "scenario": {
+                  "seed": 101,
+                  "kind": "rough"
+                },
+                "status": "accepted-960",
+                "score": -1.0867359482766252,
+                "reason": "pitch-envelope",
+                "residual960": 0.0000023071229317512684,
+                "residual1920": null,
+                "delta480960": 0.00009295219776550567,
+                "delta9601920": null,
+                "work": 3815.0560315681328,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 113,
+                  "kind": "ridge"
+                },
+                "status": "accepted-960",
+                "score": 20.571079168016677,
+                "reason": "goal",
+                "residual960": 1.8449192018172808e-8,
+                "residual1920": null,
+                "delta480960": 3.8405545765840543e-7,
+                "delta9601920": null,
+                "work": 5687.41370396173,
+                "reached": true
+              },
+              {
+                "scenario": {
+                  "seed": 127,
+                  "kind": "washboard"
+                },
+                "status": "accepted-960",
+                "score": 13.475183805869145,
+                "reason": "timeout",
+                "residual960": 0.000026555435111431225,
+                "residual1920": null,
+                "delta480960": 0.00024846473590578455,
+                "delta9601920": null,
+                "work": 10448.756891732039,
+                "reached": false
+              },
+              {
+                "scenario": {
+                  "seed": 149,
+                  "kind": "low-grip"
+                },
+                "status": "accepted-960",
+                "score": 19.549097783856464,
+                "reason": "goal",
+                "residual960": 1.4836688854935936e-11,
+                "residual1920": null,
+                "delta480960": 3.49133593147144e-8,
+                "delta9601920": null,
+                "work": 13094.865107904045,
+                "reached": true
+              }
+            ],
+            "accepted": 4,
+            "total": 4,
+            "meanScore": 13.127156202366415,
+            "successRate": 0.5,
+            "gatePassed": true,
+            "simulationRuns": 8
+          }
+        }
+      }
+    ]
+  }
+}

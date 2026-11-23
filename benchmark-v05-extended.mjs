@@ -1,4 +1,4 @@
-import { createCoEvolutionLab } from './evolution.mjs';
+import { createCoEvolutionLab } from './src/evolution.mjs';
 const lab=createCoEvolutionLab();
 const tests=lab.selfTest();
 if(tests.passed!==tests.total)throw Error(JSON.stringify(tests));

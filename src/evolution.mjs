@@ -80,10 +80,10 @@ export function createCoEvolutionLab(physics=createControlledSuspensionLab()){
   }
   return {morph:mode==="control"?{...baseMorph}:repairMorph(z.morph),control:mode==="morphology"?null:repairControl(z.control)};
  }
- function search({seed=1,method="joint",budget=24,population=8}={}){
+ function search({seed=1,method="joint",budget=24,population=8,trainDt=1/480}={}){
   if(!["random","morphology","control","joint"].includes(method)||!Number.isInteger(budget)||budget<population||budget%population!==0)throw Error("invalid search budget");
   const r=rng(seed),all=[];let current=[];
-  const addCandidate=genome=>{const g=repairGenome(genome,method),metrics=evaluate(g),c={genome:g,metrics};all.push(c);return c;};
+  const addCandidate=genome=>{const g=repairGenome(genome,method),metrics=evaluate(g,train,trainDt),c={genome:g,metrics};all.push(c);return c;};
   if(method==="random"){for(let i=0;i<budget;i++)addCandidate(sampleGenome(r,method));}
   else{
    current=Array.from({length:population},()=>addCandidate(sampleGenome(r,method)));
@@ -110,12 +110,12 @@ export function createCoEvolutionLab(physics=createControlledSuspensionLab()){
   const accepted=rows.filter(x=>x.status!=="unresolved"),meanScore=accepted.length?accepted.reduce((a,b)=>a+b.score,0)/accepted.length:null;
   return {rows,accepted:accepted.length,total:rows.length,meanScore,successRate:accepted.length?accepted.filter(x=>x.reached).length/accepted.length:null,gatePassed:accepted.length===rows.length,simulationRuns};
  }
- function benchmark({seeds=[7,19,41],budget=24,population=8}={}){
+ function benchmark({seeds=[7,19,41],budget=24,population=8,trainDt=1/480}={}){
   const methods=["random","morphology","control","joint"],rows=[];
   for(const seed of seeds){
    const row={seed};
-   for(const method of methods){const result=search({seed,method,budget,population}),validation=validate(result.best.genome);row[method]={trainFitness:result.best.metrics.fitness,trainScore:result.best.metrics.meanScore,trainSuccess:result.best.metrics.success,genome:result.best.genome,paretoSize:result.paretoSize,validation};}
-   const fixed={morph:{...baseMorph},control:null},fm=evaluate(fixed),fv=validate(fixed);
+   for(const method of methods){const result=search({seed,method,budget,population,trainDt}),validation=validate(result.best.genome);row[method]={trainFitness:result.best.metrics.fitness,trainScore:result.best.metrics.meanScore,trainSuccess:result.best.metrics.success,genome:result.best.genome,paretoSize:result.paretoSize,validation};}
+   const fixed={morph:{...baseMorph},control:null},fm=evaluate(fixed,train,trainDt),fv=validate(fixed);
    row.fixed={trainFitness:fm.fitness,trainScore:fm.meanScore,trainSuccess:fm.success,genome:fixed,paretoSize:1,validation:fv};
    rows.push(row);
   }
@@ -124,7 +124,7 @@ export function createCoEvolutionLab(physics=createControlledSuspensionLab()){
    return [k,{trainScore:v.reduce((s,x)=>s+x.trainScore,0)/v.length,trainSuccess:v.reduce((s,x)=>s+x.trainSuccess,0)/v.length,testScore:accepted.length?accepted.reduce((s,x)=>s+x.score,0)/accepted.length:null,testSuccess:accepted.length?accepted.filter(x=>x.reached).length/accepted.length:null,gatePasses:v.reduce((s,x)=>s+x.validation.accepted,0),gateTotal:v.reduce((s,x)=>s+x.validation.total,0),meanParetoSize:v.reduce((s,x)=>s+x.paretoSize,0)/v.length}];
   }));
   const comparisons={};for(const a of ["joint","morphology","control"])for(const b of ["random","fixed","morphology","control"])if(a!==b){const d=rows.map(r=>r[a].validation.meanScore-r[b].validation.meanScore);comparisons[`${a}Vs${b}`]={wins:d.filter(x=>x>1e-9).length,ties:d.filter(x=>Math.abs(x)<=1e-9).length,losses:d.filter(x=>x< -1e-9).length,mean:d.reduce((s,x)=>s+x,0)/d.length};}
-  return {train,test,budget,population,searchEvaluations:seeds.length*methods.length*budget,trainingSimulationRuns:seeds.length*methods.length*budget*train.length,fixedBaselineSimulationRuns:seeds.length*train.length,validationSimulationRuns:rows.reduce((s,r)=>s+["random","morphology","control","joint","fixed"].reduce((a,k)=>a+r[k].validation.simulationRuns,0),0),summary,comparisons,rows};
+  return {train,test,budget,population,trainDt,searchEvaluations:seeds.length*methods.length*budget,trainingSimulationRuns:seeds.length*methods.length*budget*train.length,fixedBaselineSimulationRuns:seeds.length*train.length,validationSimulationRuns:rows.reduce((s,r)=>s+["random","morphology","control","joint","fixed"].reduce((a,k)=>a+r[k].validation.simulationRuns,0),0),summary,comparisons,rows};
  }
  function selfTest(){
   const checks={},assert=(k,v)=>checks[k]=!!v;
